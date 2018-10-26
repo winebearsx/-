@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<title>学习资源</title>
+	<link rel="stylesheet" href="assets/css/weui.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body ontouchstart>
+	<div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+	<div class="container" id="container">
+		<div class="page js_show">
+			<div class="page__bd page__bd_spacing page__bd-ht">
+				<div class="notice-tab">
+					<div class="notice-tab__panel">
+						<!-- 搜索 -->
+						<div class="weui-search-bar edu-search-bar" id="searchBar">
+						<form class="weui-search-bar__form">
+							<div class="weui-search-bar__box">
+								<i class="weui-icon-search"></i>
+								<input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索学习资源" required="">
+								<a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+							</div>
+							<label class="weui-search-bar__label edu-search-bar__label" id="searchText">
+								<i class="weui-icon-search"></i>
+								<span>搜索学习资源</span>
+							</label>
+						</form>
+						<a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+					</div>
+						
+						<!-- /搜索 -->
+						<!-- 视频资源 -->
+						<div class="notice-panel">
+							<div class="notice-panel__hd">
+								
+								<div href="" class="notice-media-box">
+									<div class="notice-media-box__hd">
+										<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_video.png" alt="">
+									</div>
+									<div class="notice-media-box__bd">
+										<h4 class="notice-media-box__title">海洋数据可视化研究</h4>
+										<p class="notice-media-box__date">
+											已有
+											<span class="" style="color:#0970c6">320</span>
+											学习了该课程
+										</p>
+									</div>
+									<div class="notice-media-box__ft">
+										<img src="assets/img/edu/edu_icon_play.png"class="media-icon" style="" alt="播放">
+										<img src="assets/img/edu/edu_icon_download.png"class="media-icon" alt="下载">
+									</div>
+								</div>
+								<div href="" class="notice-media-box">
+									<div class="notice-media-box__hd">
+										<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_video.png" alt="">
+									</div>
+									<div class="notice-media-box__bd">
+										<h4 class="notice-media-box__title">海洋数据可视化研究</h4>
+										<p class="notice-media-box__date">
+											已有
+											<span class="" style="color:#0970c6">320</span>
+											学习了该课程
+										</p>
+									</div>
+									<div class="notice-media-box__ft">
+										<img src="assets/img/edu/edu_icon_play.png"class="media-icon"  alt="播放">
+										<img src="assets/img/edu/edu_icon_download.png"class="media-icon" alt="下载">
+									</div>
+								</div>
+								<div href="" class="notice-media-box">
+									<div class="notice-media-box__hd">
+										<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_video.png" alt="">
+									</div>
+									<div class="notice-media-box__bd">
+										<h4 class="notice-media-box__title">海洋数据可视化研究</h4>
+										<p class="notice-media-box__date">
+											已有
+											<span class="" style="color:#0970c6">320</span>
+											学习了该课程
+										</p>
+									</div>
+									<div class="notice-media-box__ft">
+										<img src="assets/img/edu/edu_icon_play.png"class="media-icon"  alt="播放">
+										<img src="assets/img/edu/edu_icon_download.png"class="media-icon" alt="下载">
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+						<!-- /视频资源 -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<script src="https://res.wx.qq.com/open/libs/zepto/1.1.6/zepto.js"></script>
+	<script src="https://cdn.bootcss.com/jquery-weui/0.8.2/js/jquery-weui.min.js"></script>
+	<script>
+		$(function(){
+			var $searchBar = $('#searchBar'),
+			$searchResult = $('#searchResult'),
+			$searchText = $('#searchText'),
+			$searchInput = $('#searchInput'),
+			$searchClear = $('#searchClear'),
+			$searchCancel = $('#searchCancel');
+
+			function hideSearchResult(){
+				$searchResult.hide();
+				$searchInput.val('');
+			}
+			function cancelSearch(){
+				hideSearchResult();
+				$searchBar.removeClass('weui-search-bar_focusing');
+				$searchText.show();
+			}
+
+			$searchText.on('click', function(){
+				$searchBar.addClass('weui-search-bar_focusing');
+				$searchInput.focus();
+			});
+			$searchInput
+			.on('blur', function () {
+				if(!this.value.length) cancelSearch();
+			})
+			.on('input', function(){
+				if(this.value.length) {
+					$searchResult.show();
+				} else {
+					$searchResult.hide();
+				}
+			});
+			$searchClear.on('click', function(){
+				hideSearchResult();
+				$searchInput.focus();
+			});
+			$searchCancel.on('click', function(){
+				cancelSearch();
+				$searchInput.blur();
+			});
+		});
+	</script>
+</body>
+</html>

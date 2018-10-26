@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<title>登录</title>
+	<link rel="stylesheet" href="assets/css/weui.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body ontouchstart>
+	<div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
+	<div class="container" id="container">
+		<div class="page js_show">
+			<div class="page__bd">
+				<!-- 登录页面 -->
+				<div class="login__hd">
+					<img  class="login__logo" src="assets/img/login/login_logo.png" alt="logo">
+				</div>
+
+				<form id="loginForm">
+					<div class="login__bd login__bd_spacing">
+						<div class="login-cells">
+							<!-- 用户名 -->
+							<div class="login-cell">
+								<div class="login-cell__bd">
+									<input id="telphone" class="login-input" type="tel" name="hltyTelphone" placeholder="请输入用户名"/>
+								</div>
+								<div class="login-cell__ft">
+									<img id="telphoneClearBtn" class="login-icon" src="assets/img/login/login_icon_input_close.png" alt="关闭">
+								</div>
+							</div>
+							<!-- /用户名 -->
+
+							<!-- 密码 -->
+							<div class="login-cell">
+								<div class="login-cell__bd">
+									<input id="password" class="login-input" type="password" name="hltyPassword" placeholder="请输入密码"/>
+								</div>
+								<div class="login-cell__ft">
+									<img id="passwordClearBtn" class="login-icon" src="assets/img/login/login_icon_input_close.png" alt="关闭">
+									<img id="passwordChangeBtn" class="login-icon" style="display: block;" src="assets/img/login/login_icon_pas_hide.png"  alt="显示隐藏">
+								</div>
+							</div>
+							<!-- /密码 -->				
+						</div>	
+							
+						<!-- 登录按钮 -->
+						<div class="login-operation">
+							<a href="#" id="loginBtn" class="login-btn">登陆</a>
+						</div>
+						<!-- /登录按钮 -->	    
+									
+						
+					</div>
+					<!-- /登录页面 -->
+				</form>
+
+
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
