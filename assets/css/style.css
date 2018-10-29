@@ -13,7 +13,7 @@ ul {
 }
 
 .page,body {
-  background-color: #fff;
+  background-color: #fafafa;
 }
 
 .page-bgc{
@@ -21,7 +21,7 @@ ul {
 }
 
 .link {
-  color: #ff315e;
+  color:#0970c6;
 }
 
 .container {
@@ -56,7 +56,7 @@ ul {
 }
 
 .page__bd_spacing {
-  padding: 0 15px;
+  padding: 0 10px;
 
 }
 
@@ -240,9 +240,6 @@ ul {
   align-items: center;
   border-bottom: 1px solid #ffffff;
 }
-.notice-cell__hd {
-
-}
 .notice-cell__bd {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -278,7 +275,7 @@ ul {
 }
 .notice-media-box__title{
   display: block;
-  margin-top: 12px;
+  /* margin-top: 12px; */
   margin-inline-start: 0px;
   margin-inline-end: 0px;
   font-weight: bold;
@@ -294,16 +291,17 @@ ul {
 .notice-media-box{
   position: relative;
   display: flex;
-  padding-bottom: 12px;
+  padding-top: 8px;
+  padding-bottom: 8px;
   color: #000;
-  border-bottom: 1px solid rgba(204,204,204,0.2);
+  border-bottom: 1px solid rgba(204,204,204,0.5);
   align-items: center;
 }
 .notice-media-box__bd{
   flex: 1;
 }
 .notice-media-box__pic{
-  margin-top: 12px;
+  /* margin-top: 12px; */
   margin-right:12px;
   width: 55px;
   height: 35px;
@@ -315,7 +313,7 @@ ul {
 }
 .notice-media-box__ft{
   text-align: center;
-  margin-top: 10px;
+  
 }
 .edu-issue{
   margin-left: 4px;
@@ -388,7 +386,6 @@ ul {
 }
 .exercise-media-box__title {
     display: block;
-    margin-top: 6px;
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
@@ -415,10 +412,72 @@ ul {
   width: 16px;
   height: 16px;
 }
+/* 练习答题页面 */
 
+.exercise-answer-media-box__pic{
+  margin-top: 10px;
+  margin-right:12px;
+  width: 16px;
+  height: 16px;
+
+}
+.exercise-media-box__ft{
+  border-left: 1px solid rgba(204, 204, 204, 0.5);
+  padding-left: 8px;
+  
+}
+.exercise-subject__num{
+  font-size: 20px;
+  color: red;
+}
+.exercise-answer-subject-box{
+  width: 100%;
+  height: 145px;
+  background-color: #fafafa;
+  font-size: 14px;
+  padding-top: 25px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.subject-box__type{
+  color: #0970c6;
+}
+.exercise-answer-subject-choice{
+  display: flex;
+  flex-direction: column
+}
+.exercise-check-cell__hd {
+  margin-right: 10px;
+  display: inline-flex;
+  align-items: center;
+}
+.exercise-check[type="radio"] {
+  display: none;
+}
+.exercise-check[type="radio"]:checked + .exercise-icon-checked {
+  background-image: url('../img/text/checked-icon.png');
+  background-size: 16px 16px;
+  border:#0970c6 1px solid;
+}
+.exercise-check__option{
+  font-size: 13px;
+}
+.exercise-identity__label {
+  
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: flex-start; 
+}
+.exercise-icon-checked {
+  display: block;
+  margin-top: -20px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid #999;
+}
 /*考试页面*/
 .exam-container{
-  background-color: #333;
+  background-color: #fafafa;
 }
 .exam-btn{
     width: 82px;
@@ -429,4 +488,82 @@ ul {
     border-radius: 4px;
     font-size: 14px;
     color: #fff;
+}
+/* 考试答题页面 */
+.over-btn{
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 14px;
+  padding-right: 14px;
+  box-sizing: border-box;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  color: #0970c6;
+  margin-top: 14px;
+  line-height: 45px;
+  border: 1px solid #0970c6;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow: hidden;
+  background-color: #ffffff;
+}
+/* 考试完成界面 */
+.exam-finish__hd{
+  text-align: center;
+  margin-top: 18.5px;
+}
+.exam-finish__text{
+  font-size: 17px;
+}
+.exam-finish__bd{
+  margin-top: 38.5px;
+  text-align: center;
+}
+.exam-finish__mark{
+  font-size: 64px;
+  color: #f5340d;
+}
+/* 我的 */
+.user-media-box{
+  position: relative;
+  display: flex;
+  color: #000;
+  align-items: center;
+  padding-top: 18px;
+  padding-bottom:18px;
+  background-color: #fafafa;
+}
+.user-media-box__pic{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+.user-label {
+  display: flex;
+  width: 96px;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.user-cells{
+  margin-top: 15px;
+}
+.user-cell{
+  align-items: center
+}
+.user-remark{
+  margin-top:4px;
+  margin-right: 4px;
+  width: 16px;
+  height: 16px;
+}
+/* 修改密码 */
+.referee-label{
+  display: flex;
+  width: 96px;
+  word-wrap: break-word;
+  word-break: break-all;
 }
