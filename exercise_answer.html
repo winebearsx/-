@@ -21,7 +21,7 @@
     <div class="container exercise-container" id="container">
         <div class="page js_show">
             <div class="page__bd ">
-                <div class="notice-tab">
+                <div id="questionId" class="notice-tab">
                     <div class="notice-tab__panel">
                         <!-- 题目标题 -->
                         <div href="#" class="notice-media-box">
@@ -31,7 +31,7 @@
                             </div>
                             <div class="notice-media-box__bd exercise-media-box__bd">
                                 <h4 class="exercise-media-box__title">
-                                    海洋数据可视化试卷一
+                                    {{questionTitle.title}}
                                 </h4>
                             </div>
                             <div class="exercise-media-box__ft">
@@ -42,29 +42,50 @@
                         </div>
                         <!-- /题目标题 -->
                         <!-- 题型题目 -->
-                        <div class="exercise-answer-subject-box">
+                        <div class="exercise-answer-subject-box" v-if="questionData.questionType =='one'">
                             <!-- 题型 -->
                             <span class="subject-box__type">【 单选题 】</span>
                             <!-- /题型 -->
                             <!-- 题目 -->
-                            <span class="subject-box__subject">1、下列有关数字海洋内容的表述，符合原文内容的一项是。</span>
+                            <span class="subject-box__subject">1、{{questionTitle.content}}</span>
+                            <!-- /题目 -->
+                        </div>
+                        <!-- /题型题目 -->
+                        <!-- 题型题目 -->
+                        <div class="exercise-answer-subject-box" v-if="questionData.questionType =='multi'">
+                            <!-- 题型 -->
+                            <span class="subject-box__type">【 多选题 】</span>
+                            <!-- /题型 -->
+                            <!-- 题目 -->
+                            <span class="subject-box__subject">1、{{questionTitle.content}}</span>
+                            <!-- /题目 -->
+                        </div>
+                        <!-- /题型题目 -->
+                        <!-- 题型题目 -->
+                        <div class="exercise-answer-subject-box" v-if="questionData.questionType =='true_false'">
+                            <!-- 题型 -->
+                            <span class="subject-box__type">【 判断题 】</span>
+                            <!-- /题型 -->
+                            <!-- 题目 -->
+                            <span class="subject-box__subject">1、{{questionTitle.content}}</span>
                             <!-- /题目 -->
                         </div>
                         <!-- /题型题目 -->
                         <!-- 选项 -->
-                        <div class="exercise-answer-subject-choice" style="background-color: #fff">
-
+                        <!-- 单选题 -->
+                        <div class="exercise-answer-subject-choice" style="background-color: #fff" v-if="questionData.questionType == 'one'">
+                            <!-- 单选题 -->
                             <!-- 选择答案 -->
 
                             <!-- A -->
                             <div class="notice-media-box">
                                 <label class="exercise-identity__label" for="A">
                                     <div class="exercise-check-cell__hd">
-                                        <input type="radio" class="exercise-check" name="checkbox1" id="A" />
+                                        <input type="radio" class="exercise-check" name="radioBox" id="A"/>
                                         <i class="exercise-icon-checked"></i>
                                     </div>
                                     <div class="exercise-check-cell__bd">
-                                        <span class="exercise-check__option">A.借助信息技术网络技术和能院技术，建立海面观测，海底观测的完整立体观测体系，进行数据采集</span>
+                                        <span class="exercise-check__option" name = "radioBoxValue">A. {{questionAnswer_A.answer}}</span>
                                     </div>
                                 </label>
                             </div>
@@ -73,11 +94,11 @@
                             <div class="notice-media-box">
                                 <label class="exercise-identity__label" for="B">
                                     <div class="exercise-check-cell__hd">
-                                        <input type="radio" class="exercise-check" name="checkbox1" id="B" />
+                                        <input type="radio" class="exercise-check" name="radioBox" id="B" />
                                         <i class="exercise-icon-checked"></i>
                                     </div>
                                     <div class="exercise-check-cell__bd">
-                                        <span class="exercise-check__option">B.借助信息技术网络技术和能院技术，建立海面观测，海底观测的完整立体观测体系，进行数据采集</span>
+                                        <span class="exercise-check__option" name = "radioBoxValue">B. {{questionAnswer_B.answer}}</span>
                                     </div>
                                 </label>
                             </div>
@@ -86,11 +107,11 @@
                             <div class="notice-media-box">
                                 <label class="exercise-identity__label" for="C">
                                     <div class="exercise-check-cell__hd">
-                                        <input type="radio" class="exercise-check" name="checkbox1" id="C" />
+                                        <input type="radio" class="exercise-check" name="radioBox" id="C" />
                                         <i class="exercise-icon-checked"></i>
                                     </div>
                                     <div class="exercise-check-cell__bd">
-                                        <span class="exercise-check__option">C.借助信息技术网络技术和能院技术，建立海面观测，海底观测的完整立体观测体系，进行数据采集</span>
+                                        <span class="exercise-check__option" name = "radioBoxValue">C. {{questionAnswer_C.answer}}</span>
                                     </div>
                                 </label>
                             </div>
@@ -99,11 +120,11 @@
                             <div class="notice-media-box">
                                 <label class="exercise-identity__label" for="D">
                                     <div class="exercise-check-cell__hd">
-                                        <input type="radio" class="exercise-check" name="checkbox1" id="D" />
+                                        <input type="radio" class="exercise-check" name="radioBox" id="D" />
                                         <i class="exercise-icon-checked"></i>
                                     </div>
                                     <div class="exercise-check-cell__bd">
-                                        <span class="exercise-check__option">D.借助信息技术网络技术和能院技术，建立海面观测，海底观测的完整立体观测体系，进行数据采集</span>
+                                        <span class="exercise-check__option" name = "radioBoxValue">D. {{questionAnswer_D.answer}}</span>
                                     </div>
                                 </label>
                             </div>
@@ -112,9 +133,92 @@
                             <!-- /选择答案 -->
 
                         </div>
+                        <!-- /单选题 -->
+                        <!-- 多选题 -->
+                        <div class="exercise-answer-subject-choice" style="background-color: #fff" v-if="questionData.questionType == 'multi'">
+                            <!-- A -->
+                            <div class="notice-media-box">
+                                <label class="exercise-identity__label">
+                                    <div class="exercise-check-cell__hd">
+                                        <input type="checkbox" class="exercise-check" name="checkbox" />
+                                        <i class="exercise-icon-checked"></i>
+                                    </div>
+                                    <div class="exercise-check-cell__bd">
+                                        <span class="exercise-check__option" name="checkBoxValue">A. {{questionAnswer_A.answer}}</span>
+                                    </div>
+                                </label>
+                            </div>
+                            <!-- /A -->
+                             <!-- B -->
+                             <div class="notice-media-box">
+                                <label class="exercise-identity__label" >
+                                    <div class="exercise-check-cell__hd">
+                                        <input type="checkbox" class="exercise-check" name="checkbox"  />
+                                        <i class="exercise-icon-checked"></i>
+                                    </div>
+                                    <div class="exercise-check-cell__bd">
+                                        <span class="exercise-check__option" name="checkBoxValue">B. {{questionAnswer_B.answer}}</span>
+                                    </div>
+                                </label>
+                            </div>
+                            <!-- /B -->
+                            <!-- C -->
+                            <div class="notice-media-box">
+                                <label class="exercise-identity__label" >
+                                    <div class="exercise-check-cell__hd">
+                                        <input type="checkbox" class="exercise-check" name="checkbox"  />
+                                        <i class="exercise-icon-checked"></i>
+                                    </div>
+                                    <div class="exercise-check-cell__bd">
+                                        <span class="exercise-check__option" name="checkBoxValue">C. {{questionAnswer_C.answer}}</span>
+                                    </div>
+                                </label>
+                            </div>
+                            <!-- /C -->
+                            <!-- D -->
+                            <div class="notice-media-box">
+                                <label class="exercise-identity__label" >
+                                    <div class="exercise-check-cell__hd">
+                                        <input type="checkbox" class="exercise-check" name="checkbox"  />
+                                        <i class="exercise-icon-checked"></i>
+                                    </div>
+                                    <div class="exercise-check-cell__bd">
+                                        <span class="exercise-check__option" name="checkBoxValue">D. {{questionAnswer_D.answer}}</span>
+                                    </div>
+                                </label>
+                            </div>
+                            <!-- /D -->
+                        </div>
+                        <!-- /多选题 -->
+                        <!-- 判断题 -->
+                        <div class="exercise-answer-subject-choice" style="background-color: #fff" v-if="questionData.questionType == 'true_false'">
+                            <div class="notice-media-box">
+                                <label class="exercise-identity__label" for="r">
+                                    <div class="exercise-check-cell__hd">
+                                        <input type="radio" class="exercise-check" name="radioBox" id="r" />
+                                        <i class="exercise-icon-checked"></i>
+                                    </div>
+                                    <div class="exercise-check-cell__bd">
+                                        <span class="exercise-check__option" name="radioBoxValue">对</span>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="notice-media-box">
+                                <label class="exercise-identity__label" for="f">
+                                    <div class="exercise-check-cell__hd">
+                                        <input type="radio" class="exercise-check" name="radioBox" id="f" />
+                                        <i class="exercise-icon-checked"></i>
+                                    </div>
+                                    <div class="exercise-check-cell__bd">
+                                        <span class="exercise-check__option" name="radioBoxValue">错</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <!-- /判断题 -->
                         <!-- /选项 -->
                         <!-- 下一题按钮 -->
-                        <div class="login-operation answer-btn">
+                        <div class="login-operation answer-btn" v-on:click="nextQuestion">
                             <a href="#" id="loginBtn" class="login-btn">下一题</a>
                         </div>
                         <!-- /下一题按钮 -->
@@ -123,8 +227,10 @@
             </div>
         </div>
     </div>
-
-    <!-- <script src="" async defer></script> -->
+    <script src="assets/js/weui.min.js" type="text/javascript" charset="utf-8" async defer></script>
+    <script src="assets/js/zepto.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="assets/js/exercise_answer.js" async defer></script>
 </body>
 
 </html>

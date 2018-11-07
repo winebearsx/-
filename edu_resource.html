@@ -13,7 +13,7 @@
 	<div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
 	<div class="container" id="container">
 		<div class="page js_show">
-			<div class="page__bd page__bd-ht">
+			<div id="noticeMedia" class="page__bd page__bd-ht">
 				<div class="notice-tab">
 					<div class="notice-tab__panel">
 						<!-- 通知公告 -->
@@ -37,50 +37,24 @@
 
 
 							<div class="notice-panel__bd">
-								<a href="" class="notice-media-box">
-									<div class="notice-media-box__hd">
-									</div>
-									<div class="notice-media-box__bd">
-										<h4 class="notice-media-box__title">海洋学院三期积极分子考核成绩公示</h4>
-										<p class="notice-media-box__date">
-											发布时间:
-											<span class="edu-issue">2018.8.30</span>
-											<span class="edu-issue">来源:</span>
-											<span class="edu-issue">海洋学院</span>
-										</p>
+								<ul>
+									<li v-for="(item,index) in noticeData" :key="index" v-if="index < 3">
+										<div href="" class="notice-media-box">
+											<div class="notice-media-box__bd">
 
-									</div>
-								</a>
+												<h4 id="title" class="notice-media-box__title">{{item.title}}</h4>
+												<p class="notice-media-box__date">
 
-								<a href="" class="notice-media-box">
-									<div class="notice-media-box__hd">
-									</div>
-									<div class="notice-media-box__bd">
-										<h4 class="notice-media-box__title">海洋学院三期积极分子考核成绩公示</h4>
-										<p class="notice-media-box__date">
-											发布时间:
-											<span class="edu-issue">2018.8.30</span>
-											<span class="edu-issue">来源:</span>
-											<span class="edu-issue">海洋学院</span>
-										</p>
+													<span class="edu-issue">发布时间：{{item.writeTime}}</span>
 
-									</div>
-								</a>
+													<span class="edu-issue">来源：{{item.origin}}</span>
+												</p>
 
-								<a href="" class="notice-media-box">
-									<div class="notice-media-box__hd">
-									</div>
-									<div class="notice-media-box__bd">
-										<h4 class="notice-media-box__title">海洋学院三期积极分子考核成绩公示</h4>
-										<p class="notice-media-box__date">
-											发布时间:
-											<span class="edu-issue">2018.8.30</span>
-											<span class="edu-issue">来源:</span>
-											<span class="edu-issue">海洋学院</span>
-										</p>
+											</div>
 
-									</div>
-								</a>
+										</div>
+									</li>
+								</ul>
 							</div>
 
 						</div>
@@ -121,60 +95,37 @@
 										</a>
 									</div>
 								</div>
-								<div href="" class="notice-media-box">
-									<div class="notice-media-box__hd">
-										<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_article.png" alt="">
-									</div>
-									<div class="notice-media-box__bd">
-										<h4 class="notice-media-box__title">海洋数据可视化研究</h4>
-										<p class="notice-media-box__date">
-											已有
-											<span class="" style="color:#0970c6">320</span>
-											学习了该课程
-										</p>
-									</div>
-									<div class="notice-media-box__ft">
-										<img src="assets/img/edu/edu_icon_play.png" class="media-icon" style="visibility: hidden;" alt="播放">
-										<a id="downLoadLink" href="#" download="download.pdf">
-										<img src="assets/img/edu/edu_icon_download.png" class="media-icon" alt="下载">
-										</a>
+								<ul>
+									<li v-for="(item,index) in classicLessonsData" v-if="index < 3 ">
+										<div class="notice-media-box">
+											<div class="notice-media-box__hd" v-if="item.lessonType=='video'">
+												<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_video.png" />
+											</div>
+											<div class="notice-media-box__hd" v-if="item.lessonType=='audio'">
+												<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_audio.png" />
+											</div>
+											<div class="notice-media-box__hd" v-if="item.lessonType=='document'">
+												<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_article.png" />
+											</div>
+											<div class="notice-media-box__bd">
+												<h4 class="notice-media-box__title">{{item.title}}</h4>
+												<p class="notice-media-box__date">
+													<span style="color:#0970c6">已有 {{item.visitedTimes}} 人学习了该课程</span>
 
-									</div>
-								</div>
-								<div href="" class="notice-media-box">
-									<div class="notice-media-box__hd">
-										<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_video.png" alt="">
-									</div>
-									<div class="notice-media-box__bd">
-										<h4 class="notice-media-box__title">海洋数据可视化研究</h4>
-										<p class="notice-media-box__date">
-											已有
-											<span class="" style="color:#0970c6">320</span>
-											学习了该课程
-										</p>
-									</div>
-									<div class="notice-media-box__ft">
-										<img src="assets/img/edu/edu_icon_play.png" class="media-icon" alt="播放">
-										<img src="assets/img/edu/edu_icon_download.png" class="media-icon" alt="下载">
-									</div>
-								</div>
-								<div href="" class="notice-media-box">
-									<div class="notice-media-box__hd">
-										<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_audio.png" alt="">
-									</div>
-									<div class="notice-media-box__bd">
-										<h4 class="notice-media-box__title">海洋数据可视化研究</h4>
-										<p class="notice-media-box__date">
-											已有
-											<span class="" style="color:#0970c6">320</span>
-											学习了该课程
-										</p>
-									</div>
-									<div class="notice-media-box__ft">
-										<img src="assets/img/edu/edu_icon_play.png" class="media-icon" alt="播放">
-										<img src="assets/img/edu/edu_icon_download.png" class="media-icon" alt="下载">
-									</div>
-								</div>
+												</p>
+											</div>
+											<div class="notice-media-box__ft">
+												<img src="assets/img/edu/edu_icon_play.png" class="media-icon" alt="播放" style="visibility: hidden;" v-if="item.lessonType=='document'">
+												<img src="assets/img/edu/edu_icon_play.png" class="media-icon" alt="播放" v-if="item.lessonType=='audio'||item.lessonType=='video'">
+												<!-- <img src="assets/img/edu/edu_icon_play.png" class="media-icon" alt="播放" v-if="item.lessonType=='video'"> -->
+												<a  href="#">
+													<img  src="assets/img/edu/edu_icon_download.png" class="media-icon" alt="下载">
+												</a>
+
+											</div>
+										</div>
+									</li>
+								</ul>
 
 
 							</div>
@@ -197,59 +148,30 @@
 										</a>
 									</div>
 								</div>
-								<div href="" class="notice-media-box">
-									<div class="notice-media-box__hd">
-										<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_video.png" alt="">
-									</div>
-									<div class="notice-media-box__bd">
-										<h4 class="notice-media-box__title">海洋数据可视化研究</h4>
-										<p class="notice-media-box__date">
-											已有
-											<span class="" style="color:#0970c6">320</span>
-											学习了该课程
-										</p>
-									</div>
-									<div class="notice-media-box__ft">
-										<img src="assets/img/edu/edu_icon_play.png" class="media-icon" alt="播放">
-										<img src="assets/img/edu/edu_icon_download.png" class="media-icon" alt="下载">
-									</div>
-								</div>
-								<div href="" class="notice-media-box">
-									<div class="notice-media-box__hd">
-										<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_video.png" alt="">
-									</div>
-									<div class="notice-media-box__bd">
-										<h4 class="notice-media-box__title">海洋数据可视化研究</h4>
-										<p class="notice-media-box__date">
-											已有
-											<span class="" style="color:#0970c6">320</span>
-											学习了该课程
-										</p>
-									</div>
-									<div class="notice-media-box__ft">
-										<img src="assets/img/edu/edu_icon_play.png" class="media-icon" alt="播放">
-										<img src="assets/img/edu/edu_icon_download.png" class="media-icon" alt="下载">
-									</div>
-								</div>
-								<div href="" class="notice-media-box">
-									<div class="notice-media-box__hd">
-										<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_video.png" alt="">
-									</div>
-									<div class="notice-media-box__bd">
-										<h4 class="notice-media-box__title">海洋数据可视化研究</h4>
-										<p class="notice-media-box__date">
-											已有
-											<span class="" style="color:#0970c6">320</span>
-											学习了该课程
-										</p>
-									</div>
-									<div class="notice-media-box__ft">
-										<img src="assets/img/edu/edu_icon_play.png" class="media-icon" alt="播放">
-										<img src="assets/img/edu/edu_icon_download.png" class="media-icon" alt="下载">
-									</div>
-								</div>
+								<ul>
+									<li v-for="(item,index) in videoLessonsData" v-if="index < 3 ">
+										<div class="notice-media-box">
+											<div class="notice-media-box__hd">
+												<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_video.png" />
+											</div>
+
+											<div class="notice-media-box__bd">
+												<h4 class="notice-media-box__title">{{item.title}}</h4>
+												<p class="notice-media-box__date">
+													<span style="color:#0970c6">已有 {{item.visitedTimes}} 人学习了该课程</span>
+
+												</p>
+											</div>
+											<div class="notice-media-box__ft">
+
+												<img src="assets/img/edu/edu_icon_play.png" class="media-icon" alt="播放">
+												<img id="downLoadLink" src="assets/img/edu/edu_icon_download.png" class="media-icon" alt="下载">
 
 
+											</div>
+										</div>
+									</li>
+								</ul>
 							</div>
 						</div>
 						<!-- /视频资源 -->
@@ -270,57 +192,31 @@
 										</a>
 									</div>
 								</div>
-								<div href="" class="notice-media-box">
-									<div class="notice-media-box__hd">
-										<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_audio.png" alt="">
-									</div>
-									<div class="notice-media-box__bd">
-										<h4 class="notice-media-box__title">海洋数据可视化研究</h4>
-										<p class="notice-media-box__date">
-											已有
-											<span class="" style="color:#0970c6">320</span>
-											学习了该课程
-										</p>
-									</div>
-									<div class="notice-media-box__ft">
-										<img src="assets/img/edu/edu_icon_play.png" class="media-icon" alt="播放">
-										<img src="assets/img/edu/edu_icon_download.png" class="media-icon" alt="下载">
-									</div>
-								</div>
-								<div href="" class="notice-media-box">
-									<div class="notice-media-box__hd">
-										<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_audio.png" alt="">
-									</div>
-									<div class="notice-media-box__bd">
-										<h4 class="notice-media-box__title">海洋数据可视化研究</h4>
-										<p class="notice-media-box__date">
-											已有
-											<span class="" style="color:#0970c6">320</span>
-											学习了该课程
-										</p>
-									</div>
-									<div class="notice-media-box__ft">
-										<img src="assets/img/edu/edu_icon_play.png" class="media-icon" alt="播放">
-										<img src="assets/img/edu/edu_icon_download.png" class="media-icon" alt="下载">
-									</div>
-								</div>
-								<div href="" class="notice-media-box">
-									<div class="notice-media-box__hd">
-										<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_audio.png" alt="">
-									</div>
-									<div class="notice-media-box__bd">
-										<h4 class="notice-media-box__title">海洋数据可视化研究</h4>
-										<p class="notice-media-box__date">
-											已有
-											<span class="" style="color:#0970c6">320</span>
-											学习了该课程
-										</p>
-									</div>
-									<div class="notice-media-box__ft">
-										<img src="assets/img/edu/edu_icon_play.png" class="media-icon" alt="播放">
-										<img src="assets/img/edu/edu_icon_download.png" class="media-icon" alt="下载">
-									</div>
-								</div>
+
+								<ul>
+									<li v-for="(item,index) in audioLessonsData" v-if="index < 3 ">
+										<div class="notice-media-box">
+											<div class="notice-media-box__hd">
+												<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_audio.png" />
+											</div>
+
+											<div class="notice-media-box__bd">
+												<h4 class="notice-media-box__title">{{item.title}}</h4>
+												<p class="notice-media-box__date">
+													<span style="color:#0970c6">已有 {{item.visitedTimes}} 人学习了该课程</span>
+
+												</p>
+											</div>
+											<div class="notice-media-box__ft">
+
+												<img src="assets/img/edu/edu_icon_play.png" class="media-icon" alt="播放">
+												<img src="assets/img/edu/edu_icon_download.png" class="media-icon" alt="下载">
+
+
+											</div>
+										</div>
+									</li>
+								</ul>
 
 
 							</div>
@@ -343,57 +239,30 @@
 										</a>
 									</div>
 								</div>
-								<div href="" class="notice-media-box">
-									<div class="notice-media-box__hd">
-										<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_article.png" alt="">
-									</div>
-									<div class="notice-media-box__bd">
-										<h4 class="notice-media-box__title">海洋数据可视化研究</h4>
-										<p class="notice-media-box__date">
-											已有
-											<span class="" style="color:#0970c6">320</span>
-											学习了该课程
-										</p>
-									</div>
-									<div class="notice-media-box__ft">
-										<img src="assets/img/edu/edu_icon_play.png" class="media-icon" style="visibility: hidden;" alt="">
-										<img src="assets/img/edu/edu_icon_download.png" class="media-icon" alt="下载">
-									</div>
-								</div>
-								<div href="" class="notice-media-box">
-									<div class="notice-media-box__hd">
-										<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_article.png" alt="">
-									</div>
-									<div class="notice-media-box__bd">
-										<h4 class="notice-media-box__title">海洋数据可视化研究</h4>
-										<p class="notice-media-box__date">
-											已有
-											<span class="" style="color:#0970c6">320</span>
-											学习了该课程
-										</p>
-									</div>
-									<div class="notice-media-box__ft">
-										<img src="assets/img/edu/edu_icon_play.png" class="media-icon" style="visibility: hidden;" alt="播放">
-										<img src="assets/img/edu/edu_icon_download.png" class="media-icon" alt="下载">
-									</div>
-								</div>
-								<div href="" class="notice-media-box">
-									<div class="notice-media-box__hd">
-										<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_article.png" alt="">
-									</div>
-									<div class="notice-media-box__bd">
-										<h4 class="notice-media-box__title">海洋数据可视化研究</h4>
-										<p class="notice-media-box__date">
-											已有
-											<span class="" style="color:#0970c6">320</span>
-											学习了该课程
-										</p>
-									</div>
-									<div class="notice-media-box__ft">
-										<img src="assets/img/edu/edu_icon_play.png" class="media-icon" style="visibility: hidden;" alt="播放">
-										<img src="assets/img/edu/edu_icon_download.png" class="media-icon" alt="下载">
-									</div>
-								</div>
+								<ul>
+									<li v-for="(item,index) in documentLessonsData" v-if="index < 3 ">
+										<div class="notice-media-box">
+											<div class="notice-media-box__hd">
+												<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_article.png" />
+											</div>
+
+											<div class="notice-media-box__bd">
+												<h4 class="notice-media-box__title">{{item.title}}</h4>
+												<p class="notice-media-box__date">
+													<span style="color:#0970c6">已有 {{item.visitedTimes}} 人学习了该课程</span>
+
+												</p>
+											</div>
+											<div class="notice-media-box__ft">
+
+
+												<img src="assets/img/edu/edu_icon_download.png" class="media-icon" alt="下载">
+
+
+											</div>
+										</div>
+									</li>
+								</ul>
 
 
 							</div>
@@ -402,19 +271,19 @@
 					</div>
 					<!-- 底部菜单 -->
 					<div class="home-tabbar">
-						<a href="javascript:;" class="home-tabbar__item">
-							<img src="assets/img/edu/edu_icon_resourse_onclick.png" alt="" class="home-tabbar__icon">
+						<a href="javascript:window.location.href ='edu_resource.html';" class="home-tabbar__item">
+							<img src="assets/img/edu/edu_icon_resource_onclick.png" alt="" class="home-tabbar__icon">
 							<p class="home-tabbar__label home-tabbar__label--on">学习资源</p>
 						</a>
-						<a href="javascript:;" class="home-tabbar__item">
+						<a href="javascript:window.location.href = 'exercise_list.html';" class="home-tabbar__item">
 							<img src="assets/img/edu/edu_icon_text_disclick.png" alt="" class="home-tabbar__icon">
 							<p class="home-tabbar__label">练习</p>
 						</a>
-						<a href="javascript:;" class="home-tabbar__item">
+						<a href="javascript:window.location.href = 'exam_list.html';" class="home-tabbar__item">
 							<img src="assets/img/edu/edu_icon_exam_disclick.png" alt="" class="home-tabbar__icon">
 							<p class="home-tabbar__label">考试</p>
 						</a>
-						<a href="javascript:;" class="home-tabbar__item">
+						<a href="javascript:window.location.href = 'user.html';" class="home-tabbar__item">
 							<img src="assets/img/edu/edu_icon_mine_disclick.png" alt="" class="home-tabbar__icon">
 							<p class="home-tabbar__label">我的</p>
 						</a>
@@ -425,8 +294,8 @@
 		</div>
 	</div>
 	<script src="assets/js/weui.min.js" type="text/javascript" charset="utf-8" async defer></script>
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src="assets/js/mui.min.js"></script>
+	<script src="assets/js/zepto.js" type="text/javascript"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script src="assets/js/edu_resource.js" type="text/javascript"></script>
 </body>
 

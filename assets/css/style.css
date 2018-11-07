@@ -317,20 +317,24 @@ ul {
   text-align: center;
   
 }
-.edu-issue{
+/* .edu-issue{
   margin-left: 4px;
-}
+} */
 .edu-search-bar{
   margin-top: 10px;
   background-color: #fff;
 }
+
 .edu-search-bar:before,.edu-search-bar:after{
 
   border:none;
 }
 .edu-search-bar__label{
-  text-align: left;
-  background-color: #f4f4f4;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    border-radius: 8.4px;
+    text-align: left;
+    background: #f4f4f4;
 }
 .media-icon{
   vertical-align: middle;
@@ -372,6 +376,14 @@ ul {
 .home-tabbar__label--on{
   color: #0970c6;
 }
+/* 搜索界面 */
+.edu-search-bar__cancel-btn{
+  color: #0970c6;
+  display: block;
+}
+
+
+
 /*练习页面*/
 /*
 ***
@@ -459,6 +471,14 @@ ul {
   background-size: 16px 16px;
   border:#0970c6 1px solid;
 }
+.exercise-check[type="checkbox"] {
+  display: none;
+}
+.exercise-check[type="checkbox"]:checked + .exercise-icon-checked {
+  background-image: url('../img/text/checked-icon.png');
+  background-size: 16px 16px;
+  border:#0970c6 1px solid;
+}
 .exercise-check__option{
   font-size: 13px;
 }
@@ -470,7 +490,6 @@ ul {
 }
 .exercise-icon-checked {
   display: block;
-  margin-top: -20px;
   width: 16px;
   height: 16px;
   border-radius: 50%;
