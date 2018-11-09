@@ -15,7 +15,8 @@ new Vue({
         questionAnswer_B: [],
         questionAnswer_C: [],
         questionAnswer_D: [],
-        true_falseData: []
+        true_falseData: [],
+        questionNum:1
     },
     created() {
 
@@ -26,6 +27,7 @@ new Vue({
         getData: function () {
             //获取传过来的id
             var obj = {};
+            var text_num;
             var arr = window.location.search.slice(1).split("&");
             for (var i = 0, len = arr.length; i < len; i++) {
                 var nv = arr[i].split("=");
@@ -48,17 +50,21 @@ new Vue({
                 dataType: "json",
                 success: function (data) {
                     if (data.code > 0) {
-                        console.log(data.data);
+                        Data.questionNum++;
+                        
                         Data.questionData = data.data;
                         Data.questionTitle = data.data.question[0];
                         if (data.data.questionType == 'one' || data.data.questionType == 'multi') {
-                            Data.questionAnswer_A = data.data.answer[0];
-                            Data.questionAnswer_B = data.data.answer[1];
-                            Data.questionAnswer_C = data.data.answer[2];
-                            Data.questionAnswer_D = data.data.answer[3];
+                                Data.questionAnswer_A = data.data.answer[0],
+                                Data.questionAnswer_B = data.data.answer[1],
+                                Data.questionAnswer_C = data.data.answer[2],
+                                Data.questionAnswer_D = data.data.answer[3]
+
+
                         } else if (data.data.questionType == 'true_false') {
                             Data.true_falseData = data.data.question[0];
                         }
+
 
                     }
                 },
@@ -70,24 +76,189 @@ new Vue({
         nextQuestion: function () {
             var clickData = this;
             var questionType = clickData.questionData.questionType;
-            console.log('success');
             var radioBox = document.getElementsByName('radioBox');
+            var radiotf = document.getElementsByName('true-radioBox');
             var checkBox = document.getElementsByName('checkbox');
-            var radioBoxValue = document.getElementsByName('radioBoxValue');
-            var checkBoxValue = document.getElementsByName('checkBoxValue');
-            if (questionType == 'one' || questionType == 'true_false') {
+
+            if (questionType == 'one') {
+
+                var oneTotalArr = [];
+                var isRight = true;
                 for (let i = 0; i < radioBox.length; i++) {
+                    oneTotalArr.push(clickData.questionData.answer[i].isRight);
+                    for (let i = 0; i < oneTotalArr.length; i++) {
+                        var oneRightArr = [];
+                        if (oneTotalArr[0] == 1) {
+                            var A = 'A';
+                        } else {
+                            A = '';
+                        }
+                        if (oneTotalArr[1] == 1) {
+                            var B = 'B';
+                        } else {
+                            B = '';
+                        }
+                        if (oneTotalArr[2] == 1) {
+                            var C = 'C';
+                        } else {
+                            C = '';
+                        }
+                        if (oneTotalArr[3] == 1) {
+                            var D = 'D';
+                        } else {
+                            D = '';
+                        }
+                    }
+                    oneRightArr.push(A, B, C, D);
+
                     if (radioBox[i].checked == true) {
-                        console.log(radioBox[i]);
+                        let answerType = clickData.questionData.answer[i].isRight;
+
+                        if (answerType == 1) {
+                            isTrue = true;
+                        } else if (answerType == 0) {
+                            isTrue = false;
+
+                        }
                     }
+
+
                 }
-            }
-            else if(questionType == 'multi'){
+                console.log(oneRightArr);
+                if (isTrue == true) {
+                    location.reload();
+                } else if (isTrue == false) {
+                    for (let i = 0; i < oneRightArr.length; i++) {
+                        if (oneRightArr[i] == '' || typeof (oneRightArr[i]) == "undefined") {
+                            oneRightArr.splice(i, 1);
+                            i = i - 1;
+                        }
+                    }
+                    weui.alert('正确答案为 ' + oneRightArr, function () {
+                        console.log('ok')
+                    }, {
+                        title: '选择错误'
+                    });
+
+                }
+            } else if (questionType == 'multi') {
+                let A, B, C, D;
+                var arr = [];
+                var totalArr = [];
+                var max = 0; //获取正确答案个数
+                //判断正确答案个数
+
                 for (let i = 0; i < checkBox.length; i++) {
+                    totalArr.push(clickData.questionData.answer[i].isRight);
+
+                    // 判断正确答案的abc
+                    for (let i = 0; i < totalArr.length; i++) {
+                        var rightArr = [];
+                        if (totalArr[0] == 1) {
+                            A = 'A';
+                        } else {
+                            A = '';
+                        }
+                        if (totalArr[1] == 1) {
+                            B = "B";
+                        } else {
+                            B = '';
+                        }
+                        if (totalArr[2] == 1) {
+                            C = "C";
+                        } else {
+                            C = '';
+                        }
+                        if (totalArr[3] == 1) {
+                            D = "D";
+                        } else {
+                            D = '';
+                        }
+                    }
+
+                    //判断选择了哪个
                     if (checkBox[i].checked == true) {
-                        console.log(checkBox[i]);
+                        arr.push(clickData.questionData.answer[i].isRight); //生成数组
+                        var len = arr.length; //数组长度
+
+                        if (len > 0) {
+                            var isTrue = true;
+                            var temp = 1;
+                            for (let i = 0; i < len; i++) {
+                                if (arr[i] != 1) {
+                                    console.log('false');
+                                    isTrue = false;
+                                    break;
+                                } else {
+                                    isTrue = true;
+                                }
+
+                            }
+                        }
+                    }
+
+                }
+                rightArr.push(A, B, C, D);
+                for (let i = 0; i < totalArr.length; i++) {
+                    if (totalArr[i] == 1) {
+                        max++;
                     }
                 }
+                //弹出提示
+                if (isTrue == true && arr.length == max) {
+                    location.reload();
+                } else if (isTrue == true && arr.length < max) {
+                    console.log('少选,正确答案为' + max + '个');
+                    weui.alert('正确答案为' + max + '个', function () {
+                        console.log('ok')
+                    }, {
+                        title: '少选'
+                    });
+
+                } else if (isTrue == false) {
+                    for (let i = 0; i < rightArr.length; i++) {
+                        if (rightArr[i] == '' || typeof (rightArr[i]) == "undefined") {
+                            rightArr.splice(i, 1);
+                            i = i - 1;
+                        }
+                    }
+                    console.log('选择错误，正确答案为' + rightArr);
+                    weui.alert('正确答案为' + rightArr, function () {
+                        console.log('ok')
+                    }, {
+                        title: '选择错误'
+                    });
+                }
+                // console.log(max);
+                // console.log('totalArr' + totalArr);
+                // console.log('clickArr' + arr);
+                // console.log(rightArr);
+            } else if (questionType == 'true_false') {
+                var true_false = clickData.questionData.question[0].isRight;
+                console.log(true_false);
+                if (true_false == 1) {
+                    if (radiotf[0].checked == true) {
+                        location.reload();
+                    } else if (radiotf[1].checked == true) {
+                        weui.alert('请重新选择', function () {
+                            console.log('ok')
+                        }, {
+                            title: '选择错误'
+                        });
+                    }
+                } else if (true_false == 0) {
+                    if (radiotf[0].checked == true) {
+                        weui.alert('请重新选择', function () {
+                            console.log('ok')
+                        }, {
+                            title: '选择错误'
+                        });
+                    } else if (radiotf[1].checked == true) {
+                        location.reload();
+                    }
+                }
+
+
             }
         }
 

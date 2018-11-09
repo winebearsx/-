@@ -36,7 +36,7 @@
                             </div>
                             <div class="exercise-media-box__ft">
                                 第
-                                <span class="exercise-subject__num">1</span>
+                                <span class="exercise-subject__num">{{questionNum}}</span>
                                 题
                             </div>
                         </div>
@@ -140,7 +140,7 @@
                             <div class="notice-media-box">
                                 <label class="exercise-identity__label">
                                     <div class="exercise-check-cell__hd">
-                                        <input type="checkbox" class="exercise-check" name="checkbox" />
+                                        <input type="checkbox" class="exercise-check" name="checkbox" data-id="A" />
                                         <i class="exercise-icon-checked"></i>
                                     </div>
                                     <div class="exercise-check-cell__bd">
@@ -153,7 +153,7 @@
                              <div class="notice-media-box">
                                 <label class="exercise-identity__label" >
                                     <div class="exercise-check-cell__hd">
-                                        <input type="checkbox" class="exercise-check" name="checkbox"  />
+                                        <input type="checkbox" class="exercise-check" name="checkbox" data-id="B" />
                                         <i class="exercise-icon-checked"></i>
                                     </div>
                                     <div class="exercise-check-cell__bd">
@@ -166,7 +166,7 @@
                             <div class="notice-media-box">
                                 <label class="exercise-identity__label" >
                                     <div class="exercise-check-cell__hd">
-                                        <input type="checkbox" class="exercise-check" name="checkbox"  />
+                                        <input type="checkbox" class="exercise-check" name="checkbox" data-id="C" />
                                         <i class="exercise-icon-checked"></i>
                                     </div>
                                     <div class="exercise-check-cell__bd">
@@ -179,7 +179,7 @@
                             <div class="notice-media-box">
                                 <label class="exercise-identity__label" >
                                     <div class="exercise-check-cell__hd">
-                                        <input type="checkbox" class="exercise-check" name="checkbox"  />
+                                        <input type="checkbox" class="exercise-check" name="checkbox" data-id="D" />
                                         <i class="exercise-icon-checked"></i>
                                     </div>
                                     <div class="exercise-check-cell__bd">
@@ -195,7 +195,7 @@
                             <div class="notice-media-box">
                                 <label class="exercise-identity__label" for="r">
                                     <div class="exercise-check-cell__hd">
-                                        <input type="radio" class="exercise-check" name="radioBox" id="r" />
+                                        <input type="radio" class="exercise-check" name="true-radioBox" id="r" />
                                         <i class="exercise-icon-checked"></i>
                                     </div>
                                     <div class="exercise-check-cell__bd">
@@ -206,7 +206,7 @@
                             <div class="notice-media-box">
                                 <label class="exercise-identity__label" for="f">
                                     <div class="exercise-check-cell__hd">
-                                        <input type="radio" class="exercise-check" name="radioBox" id="f" />
+                                        <input type="radio" class="exercise-check" name="true-radioBox" id="f" />
                                         <i class="exercise-icon-checked"></i>
                                     </div>
                                     <div class="exercise-check-cell__bd">
