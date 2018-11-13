@@ -21,7 +21,7 @@
 								<!-- 通知列表 -->
 								<ul>
 									<li v-for="(item,index) in noticeListData">
-										<div class="notice-media-box">
+										<div class="notice-media-box" v-on:click = "getDetailTap(item.id)">
 											<div class="notice-media-box__bd">
 
 												<h4 id="title" class="notice-media-box__title">{{item.title}}</h4>

@@ -381,9 +381,27 @@ ul {
   color: #0970c6;
   display: block;
 }
-
-
-
+/**
+ * @名称: 通知详情
+ * css 通知
+ * @Date: Do not edit
+ */
+.notice-detail__hd{
+  padding: 20px 0px;
+}
+.notice-detail__img{
+  width: 100%;
+}
+.notice-detail__writetime{
+  padding-bottom: 20px;
+  color: #808080;
+  font-size: 14px;
+}
+.notice-detail__content{
+  padding-top: 20px;
+  font-size: 16px;
+  
+}
 /*练习页面*/
 /*
 ***
@@ -533,6 +551,12 @@ ul {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   overflow: hidden;
   background-color: #ffffff;
+}
+.time-down{
+  margin-top: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: #808080;
 }
 /* 考试完成界面 */
 .exam-finish__hd{

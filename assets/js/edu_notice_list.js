@@ -40,6 +40,7 @@ new Vue({
                 },
                 dataType: "json",
                 success: function (data) {
+                    console.log(data);
                     console.log(data.data);
                     if (data.code > 0) {
                         Data.noticeListData = data.data;
@@ -47,6 +48,10 @@ new Vue({
                     }
                 }
             });
+        },
+        getDetailTap:function(event){
+            console.log(event);
+            location.href = 'edu_notice_detail.html?id=' + event;
         }
     }
 })

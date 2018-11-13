@@ -143,10 +143,15 @@ function submitLoginForm() {
       success: function (data) {
         console.log(data);
         if (data.code > 0) {
+          localStorage.setItem("sid",data.data.sid);
+          
           weui.toast("登录成功", {
             duration: 2000,
             className: "bears"
           });
+         
+
+
           window.location.href = "edu_resource.html";
         } else if (data.code == -3) {
           weui.topTips(data.msg, {

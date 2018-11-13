@@ -6,7 +6,7 @@
  * @LastEditer: 
  * @LastEditTime: 2018-11-07 09:34:01
  */
-new Vue({
+var exercise = new Vue({
     el: "#questionId",
     data: {
         questionData: [],
@@ -16,7 +16,7 @@ new Vue({
         questionAnswer_C: [],
         questionAnswer_D: [],
         true_falseData: [],
-        questionNum:1
+        questionNum: []
     },
     created() {
 
@@ -27,7 +27,6 @@ new Vue({
         getData: function () {
             //获取传过来的id
             var obj = {};
-            var text_num;
             var arr = window.location.search.slice(1).split("&");
             for (var i = 0, len = arr.length; i < len; i++) {
                 var nv = arr[i].split("=");
@@ -40,6 +39,7 @@ new Vue({
                 command: "getExercise",
                 subjectId: obj.id
             }
+
             //请求数据
             $.ajax({
                 type: "POST",
@@ -50,22 +50,25 @@ new Vue({
                 dataType: "json",
                 success: function (data) {
                     if (data.code > 0) {
-                        Data.questionNum++;
-                        
+
                         Data.questionData = data.data;
                         Data.questionTitle = data.data.question[0];
                         if (data.data.questionType == 'one' || data.data.questionType == 'multi') {
-                                Data.questionAnswer_A = data.data.answer[0],
-                                Data.questionAnswer_B = data.data.answer[1],
-                                Data.questionAnswer_C = data.data.answer[2],
-                                Data.questionAnswer_D = data.data.answer[3]
+                            Data.questionAnswer_A = data.data.answer[0],
+                            Data.questionAnswer_B = data.data.answer[1],
+                            Data.questionAnswer_C = data.data.answer[2],
+                            Data.questionAnswer_D = data.data.answer[3]
 
 
                         } else if (data.data.questionType == 'true_false') {
                             Data.true_falseData = data.data.question[0];
                         }
-
-
+                        if(localStorage.getItem("text") == null){
+                            localStorage.setItem("text",'1');
+                        }
+                        
+                        Data.questionNum = localStorage.getItem("text");
+                        console.log(localStorage.getItem("text"));
                     }
                 },
                 error: function (res) {
@@ -127,6 +130,7 @@ new Vue({
                 console.log(oneRightArr);
                 if (isTrue == true) {
                     location.reload();
+                    exercise.getTextNum();
                 } else if (isTrue == false) {
                     for (let i = 0; i < oneRightArr.length; i++) {
                         if (oneRightArr[i] == '' || typeof (oneRightArr[i]) == "undefined") {
@@ -206,6 +210,7 @@ new Vue({
                 }
                 //弹出提示
                 if (isTrue == true && arr.length == max) {
+                    exercise.getTextNum();
                     location.reload();
                 } else if (isTrue == true && arr.length < max) {
                     console.log('少选,正确答案为' + max + '个');
@@ -238,6 +243,7 @@ new Vue({
                 console.log(true_false);
                 if (true_false == 1) {
                     if (radiotf[0].checked == true) {
+                        exercise.getTextNum();
                         location.reload();
                     } else if (radiotf[1].checked == true) {
                         weui.alert('请重新选择', function () {
@@ -260,7 +266,22 @@ new Vue({
 
 
             }
+        },
+        getTextNum: function () {
+            var text_num = localStorage.getItem("text");
+            if (text_num == 'NaN') {
+                text_num = 1;
+                localStorage.setItem("text", text_num);
+            } else {
+                text_num++;
+                localStorage.setItem("text", text_num);
+            }
+
+            console.log(localStorage.getItem("text"));
         }
 
-    }
+    },
+    beforeDestroyed() {
+        console.log("leave");
+    },
 })
