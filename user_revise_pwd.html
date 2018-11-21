@@ -21,7 +21,7 @@
                             <label class="revise-pwd-label">旧密码</label>
                         </div>
                         <div class="login-cell__bd">
-                            <input class="login-input" type="text" placeholder="请输入旧密码" />
+                            <input id="oldPassWord" class="login-input" type="text" placeholder="请输入旧密码" />
                         </div>
                         <div class="login-cell__ft">
                             <img class="login-icon" src="assets/img/login/login_icon_input_close.png" id="clearImg" alt="关闭">
@@ -36,7 +36,7 @@
                             <label class="revise-pwd-label">新密码</label>
                         </div>
                         <div class="login-cell__bd">
-                            <input class="login-input" type="tel" placeholder="请输入新密码" />
+                            <input id="newPassWord" class="login-input" type="tel" placeholder="请输入新密码" />
                         </div>
                         <div class="login-cell__ft">
                             <img class="login-icon" src="assets/img/login/login_icon_input_close.png" alt="关闭">
@@ -48,10 +48,10 @@
                     <!-- 确认密码 -->
                     <div class="login-cell">
                         <div class="login-cell__hd">
-                            <label class="revise-pwd-label">密码</label>
+                            <label class="revise-pwd-label">确认密码</label>
                         </div>
                         <div class="login-cell__bd">
-                            <input class="login-input" type="password" placeholder="请输入确认新密码" />
+                            <input id="confirmNewPwd" class="login-input" type="password" placeholder="请输入确认新密码" />
                         </div>
                         <div class="login-cell__ft">
                             <img class="login-icon" src="assets/img/login/login_icon_input_close.png" alt="关闭">
@@ -64,7 +64,7 @@
 
                 <!-- 确认按钮 -->
                 <div class="login-operation">
-                    <a href="#" class="login-btn">确认</a>
+                    <a id="comfirmBtn" href="#" class="login-btn">确认</a>
                 </div>
                 <!-- 确认按钮 -->
             </div>

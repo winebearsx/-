@@ -144,7 +144,7 @@ function submitLoginForm() {
         console.log(data);
         if (data.code > 0) {
           localStorage.setItem("sid",data.data.sid);
-          
+          localStorage.setItem("currentUserId",data.data.userId);
           weui.toast("登录成功", {
             duration: 2000,
             className: "bears"
