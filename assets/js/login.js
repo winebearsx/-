@@ -94,15 +94,15 @@ function checkLoginForm() {
           console.log("请输入学号");
         }
       });
-    } else if (userName.value.length != 9) {
-      // 学号是否正确（判断长度是否大于9位）
-      weui.topTips("请输入正确的学号", {
-        duration: 2000,
-        className: "custom-classname",
-        callback: function callback() {
-          console.log("请输入正确学号");
-        }
-      });
+    // } else if (userName.value.length != 9) {
+    //   // 学号是否正确（判断长度是否大于9位）
+    //   weui.topTips("请输入正确的学号", {
+    //     duration: 2000,
+    //     className: "custom-classname",
+    //     callback: function callback() {
+    //       console.log("请输入正确学号");
+    //     }
+    //   });
     } else if (password.value.length == 0) {
       weui.topTips("请输入密码", {
         duration: 2000,
@@ -145,6 +145,8 @@ function submitLoginForm() {
         if (data.code > 0) {
           localStorage.setItem("sid",data.data.sid);
           localStorage.setItem("currentUserId",data.data.userId);
+          localStorage.setItem("username",data.data.sName);
+          localStorage.setItem('studentId',data.data.sNo);
           weui.toast("登录成功", {
             duration: 2000,
             className: "bears"

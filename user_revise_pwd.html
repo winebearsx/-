@@ -36,7 +36,7 @@
                             <label class="revise-pwd-label">新密码</label>
                         </div>
                         <div class="login-cell__bd">
-                            <input id="newPassWord" class="login-input" type="tel" placeholder="请输入新密码" />
+                            <input id="newPassWord" class="login-input" type="password" placeholder="请输入新密码" />
                         </div>
                         <div class="login-cell__ft">
                             <img class="login-icon" src="assets/img/login/login_icon_input_close.png" alt="关闭">
@@ -64,12 +64,17 @@
 
                 <!-- 确认按钮 -->
                 <div class="login-operation">
-                    <a id="comfirmBtn" href="#" class="login-btn">确认</a>
+                    <a id="comfirmBtn" onclick="changeWord()" href="#" class="login-btn">确认</a>
                 </div>
                 <!-- 确认按钮 -->
             </div>
         </div>
     </div>
+    <script src="assets/js/weui.min.js" type="text/javascript" charset="utf-8" async defer></script>
+    <script src="assets/js/user_revise_pwd.js" type="text/javascript"></script>
+    <script src="assets/js/weui.min.js" type="text/javascript"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+    <script src="assets/js/zepto.js" type="text/javascript"></script>
 
 </body>
 

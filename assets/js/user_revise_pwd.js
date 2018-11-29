@@ -4,27 +4,37 @@
  * @公司: &公司&
  * @Author: 
  * @LastEditer: 
- * @LastEditTime: 2018-11-21 17:21:26
+ * @LastEditTime: 2018-11-28 16:12:01
  */
-window.onload = function () {
-    changeWord();
-}
 
+window.onload = function(){
+    console.log(localStorage.getItem("sid"))
+    if(localStorage.getItem("sid")== null){
+        weui.alert(
+            "",
+            function () {
+              location.href = "login.html";
+            }, {
+              title: "没有登陆,请登录"
+            }
+          );
+    }
+}
 function changeWord() {
-    let confirmBtn = document.getElementById("confirmBtn");
-    let oldPassWord = document.getElementById("oldPassWord");
-    let newPassWord = document.getElementById("newPassWord");
-    let confirmNewPwd = document.getElementById("confirmNewPwd");
-    var changeWordData = {
-        
+    var confirmBtn = document.getElementById("confirmBtn");
+    var oldPassWord = document.getElementById("oldPassWord");
+    var newPassWord = document.getElementById("newPassWord");
+    var confirmNewPwd = document.getElementById("confirmNewPwd");
+
+    
+        var changeWordData = {
             command: "changePassword",
             sid: localStorage.getItem("sid"),
             oldPassword: oldPassWord.value,
             newPassword: newPassWord.value
-        
-    }
-    confirmBtn.onclick = function () {
-        if(oldPassWord.value.length == 0){
+
+        }
+        if (oldPassWord.value.length == 0) {
             weui.topTips("请输入旧密码", {
                 duration: 2000,
                 className: "custom-classname",
@@ -42,13 +52,35 @@ function changeWord() {
                 type: "POST",
                 url: "http://marine.t.bigit.cn/index.php/Iface",
                 data: {
-                    data:JSON.stringify(changeWordData)
+                    data: JSON.stringify(changeWordData)
                 },
-                dataType: "dataType",
+                dataType: "json",
                 success: function (data) {
                     console.log(data);
+                    if(data.code > 0){
+                        weui.alert(
+                            "请重新登陆",
+                            function() {
+                              location.href = "login.html";
+                            },
+                            {
+                              title: "修改成功"
+                            }
+                          );
+                    }
+                    else if(data.code == -10){
+                        weui.alert(
+                            "请重新登陆",
+                            function() {
+                              location.href = "login.html";
+                            },
+                            {
+                              title: "登录已过期"
+                            }
+                          );
+                    }
                 }
             });
         }
-    }
+    
 }

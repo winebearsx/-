@@ -20,12 +20,12 @@
     <div class="weui-toptips weui-toptips_warn js_tooltips">错误提示</div>
     <div class="container" id="container">
         <div class="page js_show">
-            <div class="page__bd page__bd_spacing">
+            <div id="myScore" class="page__bd page__bd_spacing">
                 <!-- 姓名学号 -->
                 <div class="exam-finish__hd">
                     <p class="exam-finish__text">
                         学号为
-                        <span>15602323</span>
+                        <span>{{sNo}}</span>
                         的同学,
                         你本次考试成绩为
                     </p>
@@ -33,7 +33,7 @@
                 <!-- /姓名学号 -->
                 <!-- 分数 -->
                 <div class="exam-finish__bd">
-                    <span class="exam-finish__mark">98</span>
+                    <span class="exam-finish__mark">{{score}}</span>
                     分
                 </div>
                 <!-- 分数 -->
@@ -41,7 +41,7 @@
                 <div class="exam-finish__ft">
                     
                     <div class="login-operation">
-                        <a href="#" id="loginBtn" class="login-btn">返回首页</a>
+                        <a href="edu_resource.html" id="loginBtn" class="login-btn">返回首页</a>
                     </div>
                     
                 </div>
@@ -49,6 +49,10 @@
             </div>
         </div>
     </div>
+    <script src="assets/js/weui.min.js" type="text/javascript" charset="utf-8" async defer></script>
+    <script src="assets/js/zepto.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="assets/js/exam_finish.js"></script>
 </body>
 
 </html>

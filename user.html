@@ -21,7 +21,7 @@
     <div class="container" id="container">
         <div class="page js_show">
             <div class="page__bd  page__bd-ht">
-                <div class="notice-tab">
+                <div id="user" class="notice-tab">
                     <div class="notice-tab__panel">
                         <!-- 头像 -->
                         <div class="notice-panel">
@@ -32,10 +32,10 @@
                                             alt="头像">
                                     </div>
                                     <div class="notice-media-box__bd">
-                                        <h4 class="notice-media-box__title">赵小强</h4>
+                                        <h4 class="notice-media-box__title">{{sName}}</h4>
                                         <p class="notice-media-box__date">
                                             学号：
-                                            <span>1531432</span>
+                                            <span>{{sNo}}</span>
                                         </p>
                                     </div>
                                     <div class="notice-media-box__ft">
@@ -47,7 +47,7 @@
                         <!-- /头像 -->
                         <div class="user-cells">
                             <!-- 我的成绩 -->
-                            <div class="login-cell user-cell">
+                            <div id="myScore" class="login-cell user-cell">
                                 <div class="login-cell__hd">
                                     <label class="user-label">
                                         <img class="user-remark" src="assets/img/user/mine_icon_record.png" alt="">
@@ -63,7 +63,7 @@
                             </div>
                             <!-- 我的成绩 -->
                             <!-- 修改密码 -->
-                            <div class="login-cell user-cell">
+                            <div id="revisePwd" class="login-cell user-cell">
                                 <div class="login-cell__hd">
                                     <label class="user-label">
                                         <img class="user-remark" src="assets/img/user/mine_icon_revisepwd.png" alt="">
@@ -104,7 +104,21 @@
             </div>
         </div>
     </div>
+    <script src="assets/js/weui.min.js" type="text/javascript" charset="utf-8" async defer></script>
+	<script src="assets/js/zepto.js" type="text/javascript"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+	<script src="assets/js/user.js" type="text/javascript"></script>
+<script>
+    var myScore = document.getElementById("myScore");
+    var revisePwd = document.getElementById("revisePwd");
+    myScore.onclick = function(){
+        window.location.href = "user_remark.html"
+    }
+    revisePwd.onclick =function(){
+        window.location.href = "user_revise_pwd.html"
+    }
 
+</script>
 </body>
 
 </html>

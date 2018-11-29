@@ -67,7 +67,7 @@
                                         <i class="exercise-icon-checked"></i>
                                     </div>
                                     <div class="exercise-check-cell__bd">
-                                        <span class="exercise-check__option" name="radioBoxValue">A.{{questionAnswer_A}} </span>
+                                        <span class="exercise-check__option" name="radioBoxValue">A.{{questionAnswer_A.data}} </span>
                                     </div>
                                 </label>
                             </div>
@@ -80,7 +80,7 @@
                                         <i class="exercise-icon-checked"></i>
                                     </div>
                                     <div class="exercise-check-cell__bd">
-                                        <span class="exercise-check__option" name="radioBoxValue">B.{{questionAnswer_B}} </span>
+                                        <span class="exercise-check__option" name="radioBoxValue">B.{{questionAnswer_B.data}} </span>
                                     </div>
                                 </label>
                             </div>
@@ -93,7 +93,7 @@
                                         <i class="exercise-icon-checked"></i>
                                     </div>
                                     <div class="exercise-check-cell__bd">
-                                        <span class="exercise-check__option" name="radioBoxValue">C.{{questionAnswer_C}} </span>
+                                        <span class="exercise-check__option" name="radioBoxValue">C.{{questionAnswer_C.data}} </span>
                                     </div>
                                 </label>
                             </div>
@@ -106,7 +106,7 @@
                                         <i class="exercise-icon-checked"></i>
                                     </div>
                                     <div class="exercise-check-cell__bd">
-                                        <span class="exercise-check__option" name="radioBoxValue">D. {{questionAnswer_D}}</span>
+                                        <span class="exercise-check__option" name="radioBoxValue">D. {{questionAnswer_D.data}}</span>
                                     </div>
                                 </label>
                             </div>
@@ -130,7 +130,7 @@
                                         <i class="exercise-icon-checked"></i>
                                     </div>
                                     <div class="exercise-check-cell__bd">
-                                        <span class="exercise-check__option" name="checkBoxValue">A.{{questionAnswer_A}}
+                                        <span class="exercise-check__option" name="checkBoxValue">A.{{questionAnswer_A.data}}
                                         </span>
                                     </div>
                                 </label>
@@ -144,7 +144,7 @@
                                         <i class="exercise-icon-checked"></i>
                                     </div>
                                     <div class="exercise-check-cell__bd">
-                                        <span class="exercise-check__option" name="checkBoxValue">B.{{questionAnswer_B}}
+                                        <span class="exercise-check__option" name="checkBoxValue">B.{{questionAnswer_B.data}}
                                         </span>
                                     </div>
                                 </label>
@@ -158,7 +158,7 @@
                                         <i class="exercise-icon-checked"></i>
                                     </div>
                                     <div class="exercise-check-cell__bd">
-                                        <span class="exercise-check__option" name="checkBoxValue">C.{{questionAnswer_C}}</span>
+                                        <span class="exercise-check__option" name="checkBoxValue">C.{{questionAnswer_C.data}}</span>
                                     </div>
                                 </label>
                             </div>
@@ -171,7 +171,7 @@
                                         <i class="exercise-icon-checked"></i>
                                     </div>
                                     <div class="exercise-check-cell__bd">
-                                        <span class="exercise-check__option" name="checkBoxValue">D.{{questionAnswer_D}}</span>
+                                        <span class="exercise-check__option" name="checkBoxValue">D.{{questionAnswer_D.data}}</span>
                                     </div>
                                 </label>
                             </div>
@@ -211,7 +211,8 @@
                         <div class="login-operation answer-btn">
                             <a href="#" id="lastQuestion" class="login-btn" style="display:none" v-on:click ="lastBtn">上一题</a>
                             <a href="#" id="nextQuestion" class="login-btn" v-on:click = "nextBtn">下一题</a>
-                            <a href="#" id="overBtn" class="over-btn" v-on:click = "submitBtn">提前交卷</a>
+                            <a href="#" id="overBtn" class="over-btn" v-on:click = "overSubmitBtn">提前交卷</a>
+                            <a href="#" id="submitBtn" class="login-btn" style="display:none" v-on:click = "submitBtn">交卷</a>
                         </div>
                         <!-- /下一题按钮 -->
                         <!-- 倒计时 -->

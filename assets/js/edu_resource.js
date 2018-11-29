@@ -41,7 +41,8 @@ new Vue({
         classicLessonsData: [],
         videoLessonsData: [],
         audioLessonsData: [],
-        documentLessonsData: []
+        documentLessonsData: [],
+        downloadLink:[]
     },
     created: function () {
         this.getData();
@@ -51,6 +52,7 @@ new Vue({
         getData: function () {
             var Data = this;
             var i = 0;
+            
             var notice = {
                 command: "getNotice",
                 page: "1",
@@ -189,6 +191,85 @@ new Vue({
                 },
                 error: function (res) {
                     console.log("请求数据错误");
+                }
+            });
+            
+        },
+        onPlayTap: function (id) {
+            console.log(id);
+            var downLoadData = {
+                command: "downloadLesson",
+                lessonId: id
+            }
+            $.ajax({
+                async: true,
+                type: "POST",
+                url: "http://marine.t.bigit.cn/index.php/Iface",
+                data: {
+                    data: JSON.stringify(downLoadData)
+                },
+                dataType: "json",
+                success: function (data) {
+                    console.log(data);
+                    if (data.code > 0) {
+                        // window.open(data.data.url);
+                        location.href = "assets/music/Video Of People Walking.mp4";
+                    }
+                }
+            });
+        },
+        onDownloadTap: function (id) {
+            console.log(id);
+
+            var downLoadData = {
+                command: "downloadLesson",
+                lessonId: id
+            }
+            $.ajax({
+                async: true,
+                type: "POST",
+                url: "http://marine.t.bigit.cn/index.php/Iface",
+                data: {
+                    data: JSON.stringify(downLoadData)
+                },
+                dataType: "json",
+                success: function (data) {
+                    console.log(data.data);
+                    if (data.code > 0) {
+                        var confirm = document.getElementById('confirm');
+                        var confirmText = document.getElementById('confirmText');
+                        var sure = document.getElementById('sure');
+                        var cancel = document.getElementById('cancel');
+                        confirm.style = "display:block";
+                        confirmText.value = data.data.url;
+                        sure.onclick=function(){
+                            // confirm.style = "display:none";
+                            var clipboard = new ClipboardJS('#sure');
+                            clipboard.on('success', function (e) {
+                                weui.toast('复制成功', {
+                                    duration: 2000,
+                                    className: "bears"
+                                });
+
+                                e.clearSelection();
+                            });
+                            clipboard.on('error', function (e) {
+                                alert('复制失败');
+                            });
+                            // confirm.style = "display:none";
+                        }
+                            
+                        cancel.onclick = function(){
+                            confirm.style = "display:none";
+                        }
+                        
+                    } else if (data.code == -14) {
+                        weui.topTips(data.msg, {
+                            duration: 2000,
+                            className: "custom-classname",
+                            callback: function callback() {}
+                        });
+                    }
                 }
             });
         }
