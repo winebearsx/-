@@ -4,7 +4,7 @@
  * @公司: &公司&
  * @Author: 
  * @LastEditer: 
- * @LastEditTime: 2018-11-07 09:34:01
+ * @LastEditTime: 2018-11-30 09:52:51
  */
 var exercise = new Vue({
     el: "#questionId",
@@ -33,6 +33,12 @@ var exercise = new Vue({
                 obj[unescape(nv[0]).toLowerCase()] = unescape(nv[1]);
             }
             console.log(obj.id);
+            if (localStorage.getItem("exerciseid") != null) {
+                if (obj.id != localStorage.getItem("exerciseid")) {
+                    localStorage.removeItem("text");
+                }
+            }
+            localStorage.setItem("exerciseid", obj.id);
             var Data = this;
             var url = 'http://marine.t.bigit.cn/index.php/Iface';
             var getQuestionsData = {
@@ -55,18 +61,18 @@ var exercise = new Vue({
                         Data.questionTitle = data.data.question[0];
                         if (data.data.questionType == 'one' || data.data.questionType == 'multi') {
                             Data.questionAnswer_A = data.data.answer[0],
-                            Data.questionAnswer_B = data.data.answer[1],
-                            Data.questionAnswer_C = data.data.answer[2],
-                            Data.questionAnswer_D = data.data.answer[3]
+                                Data.questionAnswer_B = data.data.answer[1],
+                                Data.questionAnswer_C = data.data.answer[2],
+                                Data.questionAnswer_D = data.data.answer[3]
 
 
                         } else if (data.data.questionType == 'true_false') {
                             Data.true_falseData = data.data.question[0];
                         }
-                        if(localStorage.getItem("text") == null){
-                            localStorage.setItem("text",'1');
+                        if (localStorage.getItem("text") == null) {
+                            localStorage.setItem("text", '1');
                         }
-                        
+
                         Data.questionNum = localStorage.getItem("text");
                         console.log(localStorage.getItem("text"));
                     }

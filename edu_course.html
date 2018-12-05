@@ -22,8 +22,25 @@
 								<ul>
 									<li v-for="(item,index) in getLessonsData">
 										<div class="notice-media-box">
-											<div class="notice-media-box__hd">
+											<div v-if="type == 'jingpinLessons'">
+												<div class="notice-media-box__hd" v-if="item.lessonType =='video'">
+													<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_video.png" />
+												</div>
+												<div class="notice-media-box__hd" v-if="item.lessonType =='audio'">
+													<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_audio.png" />
+												</div>
+												<div class="notice-media-box__hd" v-if="item.lessonType =='document'">
+													<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_article.png" />
+												</div>
+											</div>
+											<div class="notice-media-box__hd" v-if="type =='video'">
 												<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_video.png" />
+											</div>
+											<div class="notice-media-box__hd" v-if="type =='audio'">
+												<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_audio.png" />
+											</div>
+											<div class="notice-media-box__hd" v-if="type =='document'">
+												<img class="notice-media-box__pic" src="assets/img/edu/edu_icon_article.png" />
 											</div>
 
 											<div class="notice-media-box__bd">
@@ -33,16 +50,54 @@
 
 												</p>
 											</div>
-											<div class="notice-media-box__ft">
+											<div v-if="type == 'jingpinLessons'">
+												<div v-if="item.lessonType != 'document' " class="notice-media-box__ft">
 
-												<img src="assets/img/edu/edu_icon_play.png" class="media-icon" alt="播放">
-												<img id="downLoadLink" src="assets/img/edu/edu_icon_download.png" class="media-icon" alt="下载">
+													<img v-on:click="onPlayTap(item.id)" src="assets/img/edu/edu_icon_play.png" class="media-icon" alt="播放">
+													<img v-on:click="onDownloadTap(item.id)" src="assets/img/edu/edu_icon_download.png" class="media-icon" alt="下载">
 
 
+												</div>
+												<div v-if="item.lessonType == 'document' " class="notice-media-box__ft">
+
+													<!-- <img src="assets/img/edu/edu_icon_play.png" class="media-icon" alt="播放"> -->
+													<img v-on:click="onDownloadTap(item.id)" src="assets/img/edu/edu_icon_download.png" class="media-icon" alt="下载">
+
+
+												</div>
+											</div>
+											<div v-if="type != 'jingpinLessons'">
+												<div v-if="type != 'document' " class="notice-media-box__ft">
+
+													<img v-on:click="onPlayTap(item.id)" src="assets/img/edu/edu_icon_play.png" class="media-icon" alt="播放">
+													<img v-on:click="onDownloadTap(item.id)" src="assets/img/edu/edu_icon_download.png" class="media-icon" alt="下载">
+												</div>
+												<div v-if="type == 'document' " class="notice-media-box__ft">
+
+													<!-- <img src="assets/img/edu/edu_icon_play.png" class="media-icon" alt="播放"> -->
+													<img v-on:click="onDownloadTap(item.id)" src="assets/img/edu/edu_icon_download.png" class="media-icon" alt="下载">
+												</div>
 											</div>
 										</div>
 									</li>
 								</ul>
+								<div id="confirm" class="confirm" style="display:none;">
+									<div class="weui-mask weui-animate-fade-in">
+									</div>
+									<div class="weui-dialog weui-animate-fade-in">
+										<div class="weui-dialog__hd">
+											<strong class="weui-dialog__title">下载链接（点击确定进行复制）</strong>
+										</div>
+										<div class="weui-dialog__bd">
+											<input id="confirmText" type="text" value="1" readonly="readonly" style="border-style:none" onfocus="this.blur();">
+										</div>
+										<div class="weui-dialog__ft">
+											<a id="cancel" href="javascript:;" class="weui-dialog__btn weui-dialog__btn_default">取消</a>
+											<a id="sure" href="javascript:;" class="weui-dialog__btn weui-dialog__btn_primary" data-clipboard-action="copy"
+											 data-clipboard-target="#confirmText">确定</a>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 						<!-- /视频资源 -->
@@ -51,9 +106,11 @@
 			</div>
 		</div>
 	</div>
+	<script src="assets/js/weui.min.js" type="text/javascript" charset="utf-8" async defer></script>
 	<script src="assets/js/zepto.js" type="text/javascript"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 	<script src="assets/js/edu_course.js"></script>
+	<script src="assets/js/clipboard.js" type="text/javascript"></script>
 </body>
 
 </html>

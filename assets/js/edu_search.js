@@ -4,11 +4,8 @@
  * @公司: 速收科技
  * @Author: 
  * @LastEditer: 
- * @LastEditTime: 2018-11-05 13:38:32
+ * @LastEditTime: 2018-12-03 09:30:45
  */
-window.onload = function () {
-    onSearchResultBar();
-}
 /*
  * @名称: 搜索结果
  * @交互逻辑: 点击搜索输入关键字

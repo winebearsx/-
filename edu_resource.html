@@ -26,8 +26,8 @@
 									<div class="notice-cell__bd">
 										<p>通知公告</p>
 									</div>
-									<div class="notice-cell__ft">
-										<a href="#" class="notice-cell__more">
+									<div  class="notice-cell__ft" v-on:click ="jumpTap(noticeType.type)" :key="">
+										<a id="noticelist" href="#" class="notice-cell__more">
 											<span class="notice-cell__more-text">显示全部</span>
 											<img class="notice-cell__more-icon" src="assets/img/edu/edu_icon_arrow.png" alt="">
 										</a>
@@ -39,7 +39,7 @@
 							<div class="notice-panel__bd">
 								<ul>
 									<li v-for="(item,index) in noticeData" :key="index" v-if="index < 3">
-										<div href="" class="notice-media-box">
+										<div href="" class="notice-media-box" v-on:click="getDetailTap(item.id)">
 											<div class="notice-media-box__bd">
 
 												<h4 id="title" class="notice-media-box__title">{{item.title}}</h4>
@@ -61,14 +61,14 @@
 						<!-- /通知公告 -->
 
 						<!-- 搜索 -->
-						<div class="weui-search-bar edu-search-bar" id="searchBar">
+						<div class="weui-search-bar edu-search-bar" id="searchBar" v-on:click = "onSearchBar">
 							<form class="weui-search-bar__form">
 								<div class="weui-search-bar__box">
 									<i class="weui-icon-search"></i>
 									<input type="search" class="weui-search-bar__input" id="searchInput" readonly="true" placeholder="搜索学习资源" />
 									<a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
 								</div>
-								<label for="searchInput" class="weui-search-bar__label edu-search-bar__label" id="searchText">
+								<label for="searchInput" class="weui-search-bar__label edu-recourse-search-bar__label" id="searchText">
 									<i class="weui-icon-search"></i>
 									<span>搜索学习资源</span>
 								</label>
@@ -88,8 +88,8 @@
 									<div class="notice-cell__bd">
 										<p>精品课程</p>
 									</div>
-									<div class="notice-cell__ft">
-										<a href="#" class="notice-cell__more">
+									<div class="notice-cell__ft" v-on:click ="jumpTap(jingpin.type)" :key="">
+										<a id="courceList" href="#" class="notice-cell__more">
 											<span class="notice-cell__more-text">显示全部</span>
 											<img class="notice-cell__more-icon" src="assets/img/edu/edu_icon_arrow.png" alt="">
 										</a>
@@ -142,8 +142,8 @@
 									<div class="notice-cell__bd">
 										<p>视频资源</p>
 									</div>
-									<div class="notice-cell__ft">
-										<a href="#" class="notice-cell__more">
+									<div class="notice-cell__ft" v-on:click ="jumpTap(videoType.type)" :key="">
+										<a id="audioList" href="#" class="notice-cell__more">
 											<span class="notice-cell__more-text">显示全部</span>
 											<img class="notice-cell__more-icon" src="assets/img/edu/edu_icon_arrow.png" alt="">
 										</a>
@@ -186,8 +186,8 @@
 									<div class="notice-cell__bd">
 										<p>音频资源</p>
 									</div>
-									<div class="notice-cell__ft">
-										<a href="#" class="notice-cell__more">
+									<div class="notice-cell__ft" v-on:click ="jumpTap(audioType.type)" :key="">
+										<a id="videoList" href="#" class="notice-cell__more">
 											<span class="notice-cell__more-text">显示全部</span>
 											<img class="notice-cell__more-icon" src="assets/img/edu/edu_icon_arrow.png" alt="">
 										</a>
@@ -233,8 +233,8 @@
 									<div class="notice-cell__bd">
 										<p>文档资源</p>
 									</div>
-									<div class="notice-cell__ft">
-										<a href="#" class="notice-cell__more">
+									<div class="notice-cell__ft" v-on:click ="jumpTap(documentType.type)" :key="">
+										<a id="doucumentList" href="#" class="notice-cell__more">
 											<span class="notice-cell__more-text">显示全部</span>
 											<img class="notice-cell__more-icon" src="assets/img/edu/edu_icon_arrow.png" alt="">
 										</a>

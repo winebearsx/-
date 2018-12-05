@@ -13,36 +13,32 @@
  * @交互逻辑: &交互逻辑&
  * @日期: &日期&
  */
-window.onload = function () {
-    onSearchBar();
-}
-/**
- * @名称: 点击搜索框
- * @交互逻辑: 跳转到搜索界面
- * @日期: &日期&
- */
-function onSearchBar() {
-    let clickSearchBar = document.getElementById('searchBar');
-    clickSearchBar.onclick = function () {
-        window.location.href = 'edu_search.html';
-    }
-}
-/**
- * @名称: 获取数据
- * @交互逻辑: 利用ajax获取数据
- * @Date: Do not edit
- */
 
 
 new Vue({
     el: "#noticeMedia",
     data: {
+        noticeType: {
+            type: "notice"
+        },
+        videoType: {
+            type: "video"
+        },
+        audioType: {
+            type: "audio"
+        },
+        documentType: {
+            type: "document"
+        },
+        jingpin: {
+            type: "jingpinLessons"
+        },
         noticeData: [],
         classicLessonsData: [],
         videoLessonsData: [],
         audioLessonsData: [],
         documentLessonsData: [],
-        downloadLink:[]
+        downloadLink: []
     },
     created: function () {
         this.getData();
@@ -52,7 +48,7 @@ new Vue({
         getData: function () {
             var Data = this;
             var i = 0;
-            
+
             var notice = {
                 command: "getNotice",
                 page: "1",
@@ -193,7 +189,7 @@ new Vue({
                     console.log("请求数据错误");
                 }
             });
-            
+
         },
         onPlayTap: function (id) {
             console.log(id);
@@ -212,7 +208,7 @@ new Vue({
                 success: function (data) {
                     console.log(data);
                     if (data.code > 0) {
-                        // window.open(data.data.url);
+                        // window.open("http://marine.t.bigit.cn" + data.data.url);
                         location.href = "assets/music/Video Of People Walking.mp4";
                     }
                 }
@@ -241,8 +237,11 @@ new Vue({
                         var sure = document.getElementById('sure');
                         var cancel = document.getElementById('cancel');
                         confirm.style = "display:block";
-                        confirmText.value = data.data.url;
-                        sure.onclick=function(){
+                        let inputvalue = 'http://marine.t.bigit.cn' + data.data.url;
+                        console.log(inputvalue);
+                        confirmText.value = inputvalue;
+                        
+                        sure.onclick = function () {
                             // confirm.style = "display:none";
                             var clipboard = new ClipboardJS('#sure');
                             clipboard.on('success', function (e) {
@@ -258,11 +257,11 @@ new Vue({
                             });
                             // confirm.style = "display:none";
                         }
-                            
-                        cancel.onclick = function(){
+
+                        cancel.onclick = function () {
                             confirm.style = "display:none";
                         }
-                        
+
                     } else if (data.code == -14) {
                         weui.topTips(data.msg, {
                             duration: 2000,
@@ -272,6 +271,23 @@ new Vue({
                     }
                 }
             });
+        },
+        jumpTap: function (type) {
+            console.log(type);
+            if (type == 'notice') {
+                window.location.href = "edu_notice_list.html"
+            } else {
+                window.location.href = "edu_course.html?type=" + type;
+            }
+
+        },
+        onSearchBar: function () {
+            window.location.href = 'edu_search.html';
+
+        },
+        getDetailTap:function(id){
+            console.log(id);
+            location.href = 'edu_notice_detail.html?id=' + id;
         }
     }
 })

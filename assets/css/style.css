@@ -1,10 +1,11 @@
 /* 公共样式 */
-body,html {
+body,
+html {
   -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
   color: #333;
 }
 
@@ -12,23 +13,25 @@ ul {
   list-style: none;
 }
 
-.page,body {
+.page,
+body {
   background-color: #fafafa;
 }
 
-.page-bgc{
+.page-bgc {
   background-color: #f6f9fd;
 }
 
 .link {
-  color:#0970c6;
+  color: #0970c6;
 }
 
 .container {
   overflow: hidden;
 }
 
-.container,.page {
+.container,
+.page {
   position: absolute;
   top: 0;
   right: 0;
@@ -51,7 +54,11 @@ ul {
   padding: 40px;
 }
 
-.page__bd-ht{
+.page__bd {
+  height: 100%;
+}
+
+.page__bd-ht {
   height: 100%;
 }
 
@@ -73,27 +80,30 @@ ul {
 ***/
 
 /*登陆页面*/
-.login__hd{
+.login__hd {
   padding: 0;
 }
-.login__bd{
-  margin-top:25px;
+
+.login__bd {
+  margin-top: 25px;
 }
+
 .login__bd_spacing {
   padding: 0 15px;
   padding-bottom: 20px;
 }
-.login__logo{
+
+.login__logo {
   width: 100%;
   height: 136px;
 }
 
-.login-cells{
-  padding-top:10px;
+.login-cells {
+  padding-top: 10px;
   font-size: 16px;
 }
 
-.login-cell{
+.login-cell {
   padding: 10px 15px;
   position: relative;
   display: -webkit-box;
@@ -106,26 +116,26 @@ ul {
   border-bottom: 1px solid #f2f2f2;
 }
 
-.login-cell_flex-alignItems-fs{
+.login-cell_flex-alignItems-fs {
   align-items: flex-start;
 }
 
-.login-cell__bd{
+.login-cell__bd {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
 }
 
-.login-cell__ft{
+.login-cell__ft {
   display: flex;
   align-items: center;
 }
 
-.login-cell__title{
- color:#f2f2f2;
+.login-cell__title {
+  color: #f2f2f2;
 }
 
-.login-input{
+.login-input {
   width: 100%;
   border: 0;
   outline: 0;
@@ -134,33 +144,34 @@ ul {
   font-size: inherit;
   color: inherit;
 }
-.login-input::placeholder{
-  color:#999;
+
+.login-input::placeholder {
+  color: #999;
 }
 
-.login-icon{
+.login-icon {
   display: none;
   margin-left: 10px;
   width: 15px;
   height: 15px;
 }
 
-.login-ico--on{
+.login-ico--on {
   display: block;
 }
 
-.login-icon_arrow{
+.login-icon_arrow {
   width: 8px;
   height: 12px;
   background-image: url('../img/login/login_icon_arrow.png');
   background-size: 100% 100%;
 }
 
-.login-operation{
+.login-operation {
   margin-top: 30px;
 }
 
-.login-btn{
+.login-btn {
   position: relative;
   display: block;
   margin-left: auto;
@@ -178,22 +189,26 @@ ul {
   overflow: hidden;
   background-color: #0970c6;
 }
-.login-other{
+
+.login-other {
   margin-top: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-.login-btn__register{
+
+.login-btn__register {
   font-size: 14px;
   text-decoration: underline;
   color: #999;
 }
-.login-btn__findpwd{
+
+.login-btn__findpwd {
   font-size: 14px;
   text-decoration: underline;
   color: #999;
 }
+
 /***
 **学习资源
 ***/
@@ -203,15 +218,18 @@ ul {
   position: relative;
   height: 100%;
 }
+
 .notice-tab__panel {
   box-sizing: border-box;
   height: 100%;
   padding-bottom: 65px;
   overflow: auto;
 }
+
 .notice-panel:first-child {
   margin-top: 0;
 }
+
 .notice-panel {
   position: relative;
   margin-top: 10px;
@@ -226,6 +244,7 @@ ul {
   line-height: 20px;
   color: #000;
 }
+
 .notice-cell {
   padding-left: 10px;
   padding-top: 10px;
@@ -240,16 +259,19 @@ ul {
   align-items: center;
   border-bottom: 1px solid #ffffff;
 }
+
 .notice-cell__bd {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
 
 }
+
 .notice-cell__ft {
   text-align: right;
   color: #999;
 }
+
 .notice-cell__icon {
   display: block;
   margin-right: 3.5px;
@@ -257,6 +279,7 @@ ul {
   height: 20px;
 
 }
+
 .notice-cell__more {
   display: flex;
   -webkit-box-align: center;
@@ -265,15 +288,18 @@ ul {
   font-size: 15px;
   color: #999;
 }
+
 .notice-cell__more-text {
   line-height: 20px;
 }
+
 .notice-cell__more-icon {
   margin-left: 7px;
   width: 8px;
   height: 10px;
 }
-.notice-media-box__title{
+
+.notice-media-box__title {
   display: block;
   /* margin-top: 12px; */
   margin-inline-start: 0px;
@@ -286,63 +312,80 @@ ul {
 
   text-overflow: ellipsis;
 
-  white-space: nowrap; 
+  white-space: nowrap;
 }
-.notice-media-box{
+
+.notice-media-box {
   position: relative;
   display: flex;
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 10px;
-  padding-right:10px;
+  padding-right: 10px;
   color: #000;
-  border-bottom: 1px solid rgba(204,204,204,0.5);
+  border-bottom: 1px solid rgba(204, 204, 204, 0.5);
   align-items: center;
 }
-.notice-media-box__bd{
+
+.notice-media-box__bd {
   flex: 1;
 }
-.notice-media-box__pic{
+
+.notice-media-box__pic {
   /* margin-top: 12px; */
-  margin-right:12px;
+  margin-right: 12px;
   width: 55px;
   height: 35px;
 }
-.notice-media-box__date{
+
+.notice-media-box__date {
   color: #999999;
   font-size: 11px;
 
 }
-.notice-media-box__ft{
+
+.notice-media-box__ft {
   text-align: center;
-  
+
 }
+
 /* .edu-issue{
   margin-left: 4px;
 } */
-.edu-search-bar{
+.edu-search-bar {
   margin-top: 10px;
   background-color: #fff;
 }
 
-.edu-search-bar:before,.edu-search-bar:after{
+.edu-search-bar:before,
+.edu-search-bar:after {
 
-  border:none;
+  border: none;
 }
-.edu-search-bar__label{
-    padding-top: 3px;
-    padding-bottom: 3px;
-    border-radius: 8.4px;
-    text-align: left;
-    background: #f4f4f4;
+
+.edu-recourse-search-bar__label {
+  
+  border-radius: 8.4px;
+  text-align: left;
+  background: #f4f4f4;
 }
-.media-icon{
+
+.edu-search-bar__label {
+  padding-top: 3px;
+  padding-bottom: 3px;
+  border-radius: 8.4px;
+  text-align: left;
+  background: #f4f4f4;
+}
+
+.media-icon {
   vertical-align: middle;
   width: 26px;
   height: 26px;
 
 }
-.home-tabbar{
+
+.home-tabbar {
   position: absolute;
   bottom: 0;
   z-index: 500;
@@ -351,7 +394,8 @@ ul {
   background-color: #fff;
   border-top: 1px solid #eee;
 }
-.home-tabbar__item{
+
+.home-tabbar__item {
   display: block;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
@@ -363,45 +407,53 @@ ul {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-.home-tabbar__icon{
+.home-tabbar__icon {
   width: 27px;
   height: 27px;
 }
-.home-tabbar__label{
+
+.home-tabbar__label {
   text-align: center;
   color: #808080;
   font-size: 10px;
   line-height: 1.8;
 }
-.home-tabbar__label--on{
+
+.home-tabbar__label--on {
   color: #0970c6;
 }
+
 /* 搜索界面 */
-.edu-search-bar__cancel-btn{
+.edu-search-bar__cancel-btn {
   color: #0970c6;
   display: block;
 }
+
 /**
  * @名称: 通知详情
  * css 通知
  * @Date: Do not edit
  */
-.notice-detail__hd{
+.notice-detail__hd {
   padding: 20px 0px;
 }
-.notice-detail__img{
+
+.notice-detail__img {
   width: 100%;
 }
-.notice-detail__writetime{
+
+.notice-detail__writetime {
   padding-bottom: 20px;
   color: #808080;
   font-size: 14px;
 }
-.notice-detail__content{
+
+.notice-detail__content {
   padding-top: 20px;
   font-size: 16px;
-  
+
 }
+
 /*练习页面*/
 /*
 ***
@@ -410,102 +462,120 @@ ul {
 ***
 *
  */
-.exercise-media-box__bd{
+.exercise-media-box__bd {
   display: flex;
   flex-direction: row;
 
-  
+
 }
+
 .exercise-media-box__title {
-    display: block;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    font-weight: bold;
-    font-size: 15px;
-    color: #333333;
-    /*max-width: 180px;
+  display: block;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  font-size: 15px;
+  color: #333333;
+  /*max-width: 180px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;*/
 }
-.exercise-media-box__pic{
+
+.exercise-media-box__pic {
   margin-top: 12px;
-  margin-right:12px;
+  margin-right: 12px;
   width: 36px;
   height: 36px;
 }
-.exercise-media-box__date{
+
+.exercise-media-box__date {
   margin-top: 12px;
   margin-left: 3px;
   font-size: 15px;
   font-weight: bold;
 }
-.exercise-media-icon{
+
+.exercise-media-icon {
   width: 16px;
   height: 16px;
 }
+
 /* 练习答题页面 */
 
-.exercise-answer-media-box__pic{
+.exercise-answer-media-box__pic {
   margin-top: 10px;
-  margin-right:12px;
+  margin-right: 12px;
   width: 16px;
   height: 16px;
 
 }
-.exercise-media-box__ft{
+
+.exercise-media-box__ft {
   border-left: 1px solid rgba(204, 204, 204, 0.5);
   padding-left: 8px;
-  
+
 }
-.exercise-subject__num{
+
+.exercise-subject__num {
   font-size: 20px;
   color: red;
 }
-.exercise-answer-subject-box{
+
+.exercise-answer-subject-box {
   height: 145px;
   background-color: #fafafa;
   font-size: 14px;
   padding: 25px 10px 0px 10px;
   border-bottom: 1px solid #e5e5e5;
 }
-.subject-box__type{
+
+.subject-box__type {
   color: #0970c6;
 }
-.exercise-answer-subject-choice{
+
+.exercise-answer-subject-choice {
   display: flex;
   flex-direction: column
 }
+
 .exercise-check-cell__hd {
   margin-right: 10px;
   display: inline-flex;
   align-items: center;
 }
+
 .exercise-check[type="radio"] {
   display: none;
 }
-.exercise-check[type="radio"]:checked + .exercise-icon-checked {
+
+.exercise-check[type="radio"]:checked+.exercise-icon-checked {
   background-image: url('../img/text/checked-icon.png');
   background-size: 16px 16px;
-  border:#0970c6 1px solid;
+  border: #0970c6 1px solid;
 }
+
 .exercise-check[type="checkbox"] {
   display: none;
 }
-.exercise-check[type="checkbox"]:checked + .exercise-icon-checked {
+
+.exercise-check[type="checkbox"]:checked+.exercise-icon-checked {
   background-image: url('../img/text/checked-icon.png');
   background-size: 16px 16px;
-  border:#0970c6 1px solid;
+  border: #0970c6 1px solid;
 }
-.exercise-check__option{
+
+.exercise-check__option {
   font-size: 13px;
 }
+
 .exercise-identity__label {
-  
+
   display: inline-flex;
   flex-direction: row;
-  justify-content: flex-start; 
+  justify-content: flex-start;
 }
+
 .exercise-icon-checked {
   display: block;
   width: 16px;
@@ -513,30 +583,35 @@ ul {
   border-radius: 50%;
   border: 1px solid #999;
 }
-.answer-btn{
+
+.answer-btn {
   padding-left: 15px;
-  padding-right:15px;
+  padding-right: 15px;
 }
+
 /*考试页面*/
-.exam-container{
+.exam-container {
   background-color: #fafafa;
 }
-.exam-btn{
-    width: 82px;
-    text-align: center;
-    height: 22px;
-    vertical-align: middle;
-    background-color: #0970c6;
-    border-radius: 4px;
-    font-size: 14px;
-    color: #fff;
+
+.exam-btn {
+  width: 82px;
+  text-align: center;
+  height: 22px;
+  vertical-align: middle;
+  background-color: #0970c6;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #fff;
 }
-.exam-list{
+
+.exam-list {
   padding-top: 13px;
   padding-bottom: 13px;
 }
+
 /* 考试答题页面 */
-.over-btn{
+.over-btn {
   position: relative;
   display: block;
   margin-left: auto;
@@ -556,66 +631,78 @@ ul {
   overflow: hidden;
   background-color: #ffffff;
 }
-.time-down{
+
+.time-down {
   margin-top: 20px;
   text-align: center;
   font-size: 13px;
   color: #808080;
 }
+
 /* 考试完成界面 */
-.exam-finish__hd{
+.exam-finish__hd {
   text-align: center;
   margin-top: 18.5px;
 }
-.exam-finish__text{
+
+.exam-finish__text {
   font-size: 17px;
 }
-.exam-finish__bd{
+
+.exam-finish__bd {
   margin-top: 38.5px;
   text-align: center;
 }
-.exam-finish__mark{
+
+.exam-finish__mark {
   font-size: 64px;
   color: #f5340d;
 }
+
 /* 我的 */
-.user-media-box{
+.user-media-box {
   position: relative;
   display: flex;
   color: #000;
   align-items: center;
   padding-top: 18px;
-  padding-bottom:18px;
+  padding-bottom: 18px;
   padding-left: 10px;
   padding-right: 10px;
   background-color: #fafafa;
 }
-.user-media-box__pic{
+
+.user-media-box__pic {
   width: 50px;
   height: 50px;
   border-radius: 50%;
   margin-right: 12px;
 }
+
 .user-label {
   display: flex;
   width: 96px;
   word-wrap: break-word;
   word-break: break-all;
 }
-.user-cells{
+
+.user-cells {
   margin-top: 15px;
 }
-.user-cell{
+
+.user-cell {
   align-items: center
 }
-.user-remark{
-  margin-top:4px;
+
+.user-remark {
+  margin-top: 4px;
   margin-right: 4px;
   width: 16px;
   height: 16px;
 }
+
 /* 修改密码 */
-.revise-pwd-label{
+.revise-pwd-label {
   display: flex;
   width: 96px;
   word-wrap: break-word;
